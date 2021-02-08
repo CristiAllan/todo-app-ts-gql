@@ -1,0 +1,53 @@
+/*
+
+  display: flex; - inicia flex no container
+  flex-grow - da tamanho ao elemento preenchendo os espaços vazios
+  flex-shrink - o contrario do grow - quando reduz o tamanho na tela do responsivo
+  flex-basis - tamanho inicial do elemento, e o resto é preenchido pelo grow
+  flex - <grow> <shrink> <basis>
+  flex-direction - muda a direção que os elementos estão (row, column)
+  order - muda a ordem do elemento individualmente
+  justify-content - alinha os elementos no eixo principal
+  align-items - alinha os elementos no eixo secundário
+  align-self - alinha o elemento em particular
+
+*/
+
+body {
+  background-color: #DDD;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 300px;
+  background-color: #FFF ;
+  flex-direction: row; // linha ou coluna
+  justify-content: space-around; // alinhamento dos elementos horizontalmente dentro do container
+  align-items: flex-start; // alinhamento dos elementos verticalmente dentro do container
+  // justify-content e align-items com o valor center centraliza tudo em ambos eixos coisa linda
+
+  .box {
+    width: 100px;
+    height: 100px;
+    // flex-grow: 1; // flex-grow força a ignorar parametros width e height
+    flex-basis: 300px;
+  }
+
+  .first {
+    background-color: red;
+    //flex-grow: 2; // faz com que esse elemento cresça 2 vezes mais do que os outros que receberam 1 em .box
+    // order: 3; // selecionar ordem dos elementos na tela - facilitador
+  }
+  .second {
+    background-color: green;
+    // order: 1;
+    align-self: flex-start; // altera o align-items de um item específico no eixo vertical
+  }
+  .third {
+    background-color: blue;
+    //flex-shrink: 2; // faz com que elemento se diminua mais do que os outros quando a tela é diminuida(responsividade) - oposto do flex-grow
+    // order: 2;
+  }
+}
+
